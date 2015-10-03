@@ -1,0 +1,24 @@
+{
+  "name": "generic-mongo",
+  "version": "0.0.1",
+  "description": "Generic MongoDB Datamodel",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "mongodb": "^2.0.45",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bombshock/generic-mongo.git"
+  },
+  "author": "Bombshock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bombshock/generic-mongo/issues"
+  },
+  "homepage": "https://github.com/Bombshock/generic-mongo#readme"
+}
