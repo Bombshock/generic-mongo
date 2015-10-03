@@ -3,7 +3,7 @@ Generic MongoDB Datamodel
 
 
 ## Usage
-```
+```js
 var config = {
     port: 27017,
     host: 'localhost',
@@ -14,7 +14,7 @@ var config = {
 var mongo = require('generic-mongo')(config);
 ```
 
-```
+```js
 mongo
     .query("foo")
     .populate(true)
@@ -33,21 +33,21 @@ returns a query-object. If `type` ist set, the query will only lookup this type.
 ### query.populate(boolean)
 If this is set to `true` the query will resolve all `MongoDB.ObjectID`'s to its documents. This only happens for top level attributes and arrays (so far)
 
-```
+```js
 //would resolve
 {
     "foo" : ObjectID("xxxxxxxxx")
 }
 ```
 
-```
+```js
 //would resolve
 {
     "foo" : [ObjectID("xxxxxxxxx")]
 }
 ```
 
-```
+```js
 //would not resolve
 {
     "foo" : {
