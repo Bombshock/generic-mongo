@@ -2,8 +2,7 @@ var config = {
     port: 27017,
     host: 'localhost',
     db: 'mongo',
-    collection: 'generic',
-    silent: false
+    collection: 'generic'
 };
 var mongo = require('./lib/wrapper')(config);
 
