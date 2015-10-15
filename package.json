@@ -1,6 +1,6 @@
 {
   "name": "generic-mongo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generic MongoDB Datamodel",
   "main": "index.js",
   "dependencies": {
