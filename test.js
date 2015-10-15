@@ -1,28 +1,32 @@
+"use strict";
+
 var config = {
     port: 27017,
     host: 'localhost',
     db: 'mongo',
     collection: 'generic'
 };
-var mongo = require('./lib/wrapper')(config);
+var mongo = require('./index')(config);
 
-mongo
-    .query("foo")
-    .populate(true)
-    .findOne("560f9158a8c8a6579941d4ab")
-    .then(successHandler, errorHandler);
+var query = mongo.query("bar").populate(true).depth(0);
+var promise = query.findOne("561e8b11cdb93148224686b3");
 
-mongo
-    .query("foo")
-    .populate(true)
-    .find()
-    .then(successHandler, errorHandler);
+promise.then(successHandler, errorHandler);
+promise.finally(finallyHanlder);
 
-
-function successHandler(results) {
-    console.log(JSON.stringify(results, null, 2));
+function successHandler(result) {
+    process.nextTick(function () {
+        console.log(JSON.stringify(result, null, 4));
+    });
+    return result;
 }
 
 function errorHandler(err) {
-    console.error(err);
+    console.error(err.stack);
+}
+
+function finallyHanlder() {
+    if(mongo.$db) {
+        mongo.$db.close();
+    }
 }
